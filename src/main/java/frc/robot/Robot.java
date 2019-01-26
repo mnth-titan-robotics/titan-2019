@@ -38,10 +38,14 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopInit() {
+    this._driveSys.init();
   }
 
   @Override
   public void teleopPeriodic() {
+    this._driveSys.setCmds(-1.0, 0.0);
+
+    this._driveSys.update();
   }
 
   @Override
