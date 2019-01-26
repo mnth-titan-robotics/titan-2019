@@ -24,6 +24,20 @@ public class DriveSystem {
         this.setCmds(0.0, 0.0);
     }
 
+    public void update() {
+        double leftCmd = Utils.limit(
+            this._driveCmd + this._turnCmd,
+            -1.0, 1.0);
+        double rightCmd = Utils.limit(
+            this._driveCmd - this._turnCmd,
+            -1.0, 1.0);
+        
+        this._motorDriveFL.set(leftCmd);
+        this._motorDriveRL.set(leftCmd);
+        this._motorDriveFR.set(rightCmd);
+        this._motorDriveRR.set(leftCmd);
+    }
+
     public void setCmds(double driveCmd, double turnCmd) {
         this._driveCmd = driveCmd;
         this._turnCmd = turnCmd;
