@@ -17,6 +17,18 @@ import edu.wpi.first.wpilibj.TimedRobot;
  * project.
  */
 public class Robot extends TimedRobot {
+  /**
+   * TODO:
+   *  Member variables:
+   *    One (1) Hatch named _hatch
+   *  robotInit():
+   *    construct _hatch
+   *  teleopInit():
+   *    initialize _hatch
+   *  teleopPeriodic:
+   *    set _hatch's liftCmd with the correct value from _opFace
+   */
+
   private DriveSystem _driveSys;
   private OperatorInterface _opFace;
 

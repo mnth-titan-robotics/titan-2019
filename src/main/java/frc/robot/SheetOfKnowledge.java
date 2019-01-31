@@ -1,6 +1,11 @@
 package frc.robot;
 
 public class SheetOfKnowledge {
+    /**
+     * TODO:
+     *  If you completed today's exercise without modifying this file, you've done something wrong
+     */
+
     public static final int MOTOR_DRIVE_FL = 0;
     public static final int MOTOR_DRIVE_RL = 1;
     public static final int MOTOR_DRIVE_FR = 2;
