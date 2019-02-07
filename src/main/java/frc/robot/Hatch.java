@@ -1,6 +1,6 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Victor;
 
 public class Hatch {
     /**
@@ -19,12 +19,12 @@ public class Hatch {
      *  Other tasks:
      *      Create a public method setLiftCmd(double liftCmd)
      */
-    private Talon _hatchMotor;
+    private Victor _hatchMotor;
 
     private double _liftCmd;
 
     public Hatch() {
-        this._hatchMotor = new Talon(SheetOfKnowledge.MOTOR_HATCH);
+        this._hatchMotor = new Victor(SheetOfKnowledge.MOTOR_HATCH);
 
         this.init(); 
     }

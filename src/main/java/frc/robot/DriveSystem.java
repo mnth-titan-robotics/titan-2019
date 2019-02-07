@@ -1,21 +1,21 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Victor;
 
 public class DriveSystem {
-    private Talon _motorDriveFL;
-    private Talon _motorDriveRL;
-    private Talon _motorDriveFR;
-    private Talon _motorDriveRR;
+    private Victor _motorDriveFL;
+    private Victor _motorDriveRL;
+    private Victor _motorDriveFR;
+    private Victor _motorDriveRR;
 
     private double _driveCmd;
     private double _turnCmd;
 
     public DriveSystem() {
-        this._motorDriveFL = new Talon(SheetOfKnowledge.MOTOR_DRIVE_FL);
-        this._motorDriveRL = new Talon(SheetOfKnowledge.MOTOR_DRIVE_RL);
-        this._motorDriveFR = new Talon(SheetOfKnowledge.MOTOR_DRIVE_FR);
-        this._motorDriveRR = new Talon(SheetOfKnowledge.MOTOR_DRIVE_RR);
+        this._motorDriveFL = new Victor(SheetOfKnowledge.MOTOR_DRIVE_FL);
+        this._motorDriveRL = new Victor(SheetOfKnowledge.MOTOR_DRIVE_RL);
+        this._motorDriveFR = new Victor(SheetOfKnowledge.MOTOR_DRIVE_FR);
+        this._motorDriveRR = new Victor(SheetOfKnowledge.MOTOR_DRIVE_RR);
 
         this._motorDriveFL.setInverted(SheetOfKnowledge.MOTOR_DRIVE_INVERT_L);
         this._motorDriveRL.setInverted(SheetOfKnowledge.MOTOR_DRIVE_INVERT_L);
