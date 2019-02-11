@@ -21,7 +21,6 @@ public class OperatorInterface {
         this._driveCmd = 0.0;
         this._turnCmd = 0.0;
         this._hatchCmd = 0.0;
-
     }
 
     public void update() {
@@ -30,9 +29,9 @@ public class OperatorInterface {
 
         boolean hatchLift = this._copilotStick.getRawButton(SheetOfKnowledge.BTN_COPILOT_LIFT);
         double hatchLower = this._copilotStick.getRawAxis(SheetOfKnowledge.AXIS_COPILOT_LOWER);
-        if(hatchLift == true){
+        if(hatchLift && hatchLower < 0.5){
             _hatchCmd = 1.0;
-        }else if(hatchLower >= 0.5){
+        }else if(hatchLower >= 0.5 & hatchLift == false){
             _hatchCmd = -1.0;
         }else{
             _hatchCmd = 0.0;
