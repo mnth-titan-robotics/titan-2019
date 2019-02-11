@@ -17,20 +17,9 @@ import edu.wpi.first.wpilibj.TimedRobot;
  * project.
  */
 public class Robot extends TimedRobot {
-  /**
-   * TODO:
-   *  Member variables:
-   *    One (1) Hatch named _hatch
-   *  robotInit():
-   *    construct _hatch
-   *  teleopInit():
-   *    initialize _hatch
-   *  teleopPeriodic:
-   *    set _hatch's liftCmd with the correct value from _opFace
-   */
-
   private DriveSystem _driveSys;
   private OperatorInterface _opFace;
+  private Hatch _hatch;
 
   /**
    * This function is run when the robot is first started up and should be used
@@ -40,6 +29,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     this._driveSys = new DriveSystem();
     this._opFace = new OperatorInterface();
+    this._hatch = new Hatch();
   }
 
   @Override
@@ -54,6 +44,7 @@ public class Robot extends TimedRobot {
   public void teleopInit() {
     this._driveSys.init();
     this._opFace.init();
+    this._hatch.init();
   }
 
   @Override
@@ -64,6 +55,9 @@ public class Robot extends TimedRobot {
       this._opFace.getDriveCmd(),
       this._opFace.getTurnCmd()
       );
+    this._hatch.setLiftCmd(
+      this._opFace.getLiftCmd()
+    );
 
     this._driveSys.update();
   }
