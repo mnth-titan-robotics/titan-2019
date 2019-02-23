@@ -1,27 +1,32 @@
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Victor;
 
 public class Hatch {
-    private Victor _hatchMotor;
+    private Solenoid _hatchExtend;
+    private Solenoid _hatchRetract;
 
-    private double _liftCmd;
+    private boolean _extendCmd;
+    private boolean _retractCmd;
 
     public Hatch() {
-        this._hatchMotor = new Victor(SheetOfKnowledge.MOTOR_HATCH);
+        this._hatchExtend = new Solenoid(SheetOfKnowledge.SOLENOID_EXTEND_A);
+        this._hatchRetract = new Solenoid(SheetOfKnowledge.SOLENOID_RETRACT_B);
 
         this.init(); 
     }
 
     public void init() {
-        this.setLiftCmd(0.0);
+        this._extendCmd = false;
+        this._retractCmd = false;
     }
 
     public void update() {
-        this._hatchMotor.set(this._liftCmd);
+
     }
 
     public void setLiftCmd(double liftCmd) {
-        this._liftCmd = liftCmd;
+        
     }
 }
