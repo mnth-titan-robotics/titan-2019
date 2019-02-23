@@ -26,7 +26,11 @@ public class Hatch {
 
     }
 
-    public void setLiftCmd(double liftCmd) {
-        
+    public void setExtendCmd(boolean extendCmd) {
+
+    }
+
+    public void setRetractCmd(boolean retractCmd) {
+
     }
 }
