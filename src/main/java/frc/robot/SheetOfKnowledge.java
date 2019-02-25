@@ -17,7 +17,5 @@ public class SheetOfKnowledge {
     public static final int AXIS_DRIVE = 1;
     public static final int AXIS_TURN = 4;
 
-    public static final int BTN_COPILOT_LIFT = 5;
-
-    public static final int AXIS_COPILOT_LOWER = 3;
+    public static final int AXIS_HATCHEXTEND = 3;
 }

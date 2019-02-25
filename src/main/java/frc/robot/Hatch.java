@@ -1,36 +1,31 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 public class Hatch {
-    private Solenoid _hatchExtend;
-    private Solenoid _hatchRetract;
+    private DoubleSolenoid.Value _hatchControlCmd;
 
-    private boolean _extendCmd;
-    private boolean _retractCmd;
+    private DoubleSolenoid _hatchControl;
 
     public Hatch() {
-        this._hatchExtend = new Solenoid(SheetOfKnowledge.SOLENOID_EXTEND_A);
-        this._hatchRetract = new Solenoid(SheetOfKnowledge.SOLENOID_RETRACT_B);
-
+        this._hatchControl= new DoubleSolenoid(SheetOfKnowledge.SOLENOID_EXTEND_A, SheetOfKnowledge.SOLENOID_RETRACT_B);
+    
         this.init(); 
     }
 
     public void init() {
-        this._extendCmd = false;
-        this._retractCmd = false;
+        this._hatchControlCmd = DoubleSolenoid.Value.kReverse;
     }
 
     public void update() {
-
+        this._hatchControl.set(this._hatchControlCmd);
     }
 
-    public void setExtendCmd(boolean extendCmd) {
-
-    }
-
-    public void setRetractCmd(boolean retractCmd) {
-
+    public void setHatchCmd(boolean _extendCmd) {
+        if(_extendCmd){
+            this._hatchControlCmd = DoubleSolenoid.Value.kForward;
+        }else{
+            this._hatchControlCmd = DoubleSolenoid.Value.kReverse;
+        }
     }
 }

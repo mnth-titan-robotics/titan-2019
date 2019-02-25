@@ -55,9 +55,8 @@ public class Robot extends TimedRobot {
       this._opFace.getDriveCmd(),
       this._opFace.getTurnCmd()
       );
-    this._hatch.setExtendCmd(
-      this._opFace.getExtend(),
-      this._opFace.getRetract()
+    this._hatch.setHatchCmd(
+      this._opFace.getExtendCmd()
     );
 
     this._driveSys.update();
