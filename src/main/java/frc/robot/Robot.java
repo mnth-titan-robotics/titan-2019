@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
 
 /**
@@ -20,6 +21,7 @@ public class Robot extends TimedRobot {
   private DriveSystem _driveSys;
   private OperatorInterface _opFace;
   private Hatch _hatch;
+  private Compressor _compressor;
 
   /**
    * This function is run when the robot is first started up and should be used
@@ -30,6 +32,7 @@ public class Robot extends TimedRobot {
     this._driveSys = new DriveSystem();
     this._opFace = new OperatorInterface();
     this._hatch = new Hatch();
+    this._compressor = new Compressor();
   }
 
   @Override
@@ -45,6 +48,7 @@ public class Robot extends TimedRobot {
     this._driveSys.init();
     this._opFace.init();
     this._hatch.init();
+    this._compressor.start();
   }
 
   @Override
