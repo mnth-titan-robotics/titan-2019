@@ -64,6 +64,7 @@ public class Robot extends TimedRobot {
     );
 
     this._driveSys.update();
+    this._hatch.update();
   }
 
   @Override
