@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
 
@@ -29,6 +30,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
+    CameraServer.getInstance().startAutomaticCapture();
+    
     this._driveSys = new DriveSystem();
     this._opFace = new OperatorInterface();
     this._hatch = new Hatch();
@@ -37,10 +40,19 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousInit() {
+    this._driveSys.init();
+    this._opFace.init();
   }
 
   @Override
   public void autonomousPeriodic() {
+    this._opFace.update();
+
+    this._driveSys.setCmds(
+      this._opFace.getDriveCmd(),
+      this._opFace.getTurnCmd()
+      );
+      this._driveSys.update();
   }
 
   @Override
